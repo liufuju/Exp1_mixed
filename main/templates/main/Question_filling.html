@@ -1,0 +1,674 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+<p>请您<strong>作答</strong>以下问题</p>
+<br>
+<br>
+<form action="" method="post">
+    <div class="form-group required" id="total_form">
+        <div class="controls  field-role_emo" id="id_form_role_emo">
+            <table id="role_emo" class="likert" style="display: table">
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td>完全是旁观者</td>
+                    <td>大部分像是旁观者</td>
+                    <td>更多像是旁观者</td>
+                    <td>大致相当</td>
+                    <td>更多像是亲历者</td>
+                    <td>大部分像是亲历者</td>
+                    <td>完全是亲历者</td>
+                </tr>
+                <tr>
+                    <td class="ques_text"><p>在事件中，我的感受_______。</p></td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="role_emo" value="1" required="" id="id_role_emo_0"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="role_emo" value="2" required="" id="id_role_emo_1"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="role_emo" value="3" required="" id="id_role_emo_2"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="role_emo" value="4" required="" id="id_role_emo_3"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="role_emo" value="5" required="" id="id_role_emo_4"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="role_emo" value="6" required="" id="id_role_emo_5"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="role_emo" value="7" required="" id="id_role_emo_6"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <br>
+            <br>
+        </div>
+        <div class="controls  field-self_emo" id="id_form_self_emo">
+            <table id="self_emo" class="likert" style="display: table">
+                <tr>
+                    <td></td>
+                    <td>一直看不到</td>
+                    <td>大部分时候看不到</td>
+                    <td>多数时候看不到</td>
+                    <td>大致相当</td>
+                    <td>多数时候能看到</td>
+                    <td>大部分时候能看到</td>
+                    <td>一直能看到</td>
+                </tr>
+                <tr>
+                    <td class="ques_text"><p>情景中我_______自己。</p></td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="self_emo" value="1" required="" id="id_self_emo_0"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="self_emo" value="2" required="" id="id_self_emo_1"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="self_emo" value="3" required="" id="id_self_emo_2"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="self_emo" value="4" required="" id="id_self_emo_3"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="self_emo" value="5" required="" id="id_self_emo_4"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="self_emo" value="6" required="" id="id_self_emo_5"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="self_emo" value="7" required="" id="id_self_emo_6"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <br>
+        </div>
+        <div class="controls  field-clear_emo" id="id_form_clear_emo">
+            <table id="clear_emo" class="likert" style="display: table">
+                <tr>
+                    <td></td>
+                    <td>十分模糊</td>
+                    <td>比较模糊</td>
+                    <td>略微模糊</td>
+                    <td>一般</td>
+                    <td>略微清晰</td>
+                    <td>比较清晰</td>
+                    <td>十分清晰</td>
+                </tr>
+                <tr>
+                    <td class="ques_text" id="damn_cutie"><p>情景中我看见的自己_______。</p></td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="clear_emo" value="1" required="" id="id_clear_emo_0"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="clear_emo" value="2" required="" id="id_clear_emo_1"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="clear_emo" value="3" required="" id="id_clear_emo_2"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="clear_emo" value="4" required="" id="id_clear_emo_3"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="clear_emo" value="5" required="" id="id_clear_emo_4"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="clear_emo" value="6" required="" id="id_clear_emo_5"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="clear_emo" value="7" required="" id="id_clear_emo_6"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <br>
+        </div>
+        <div class="controls  field-isolate_emo" id="id_form_isolate_emo">
+            <table id="isolate_emo" class="likert" style="display: table">
+                <tr>
+                    <td></td>
+                    <td>有很强的疏离感</td>
+                    <td>有比较强的疏离感</td>
+                    <td>有一些疏离感</td>
+                    <td>大致相当</td>
+                    <td>有一些参与感</td>
+                    <td>有比较强的参与感</td>
+                    <td>有很强的参与感</td>
+                </tr>
+                <tr>
+                    <td class="ques_text"><p>我在{{ action }}情景的时候______。</p></td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="isolate_emo" value="1" required="" id="id_isolate_emo_0"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="isolate_emo" value="2" required="" id="id_isolate_emo_1"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="isolate_emo" value="3" required="" id="id_isolate_emo_2"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="isolate_emo" value="4" required="" id="id_isolate_emo_3"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="isolate_emo" value="5" required="" id="id_isolate_emo_4"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="isolate_emo" value="6" required="" id="id_isolate_emo_5"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="isolate_emo" value="7" required="" id="id_isolate_emo_6"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <br>
+        </div>
+        <div class="controls  field-sub_time" id="id_form_sub_time">
+            <table id="sub_time" class="likert" style="display: table">
+                <tr>
+                    <td></td>
+                    <td>非常遥远</td>
+                    <td>比较遥远</td>
+                    <td>有些遥远</td>
+                    <td>一般</td>
+                    <td>有些临近</td>
+                    <td>比较临近</td>
+                    <td>非常临近</td>
+                </tr>
+                <tr>
+                    <td class="ques_text"><p>我感觉这件事像是发生在_______的{{ time }}。</p></td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="sub_time" value="1" required="" id="id_sub_time_0"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="sub_time" value="2" required="" id="id_sub_time_1"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="sub_time" value="3" required="" id="id_sub_time_2"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="sub_time" value="4" required="" id="id_sub_time_3"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="sub_time" value="5" required="" id="id_sub_time_4"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="sub_time" value="6" required="" id="id_sub_time_5"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="sub_time" value="7" required="" id="id_sub_time_6"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <br>
+        </div>
+        <div class="controls  field-vivid_emo" id="id_form_vivid_emo">
+            <table id="vivid_emo" class="likert" style="display: table">
+                <tr>
+                    <td></td>
+                    <td>完全同意</td>
+                    <td>比较同意</td>
+                    <td>有些同意</td>
+                    <td>一般</td>
+                    <td>有些不同意</td>
+                    <td>比较不同意</td>
+                    <td>完全不同意</td>
+                </tr>
+                <tr>
+                    <td class="ques_text"><p>我{{ action }}的场景非常生动，有很多细节。</p></td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="vivid_emo" value="1" required="" id="id_vivid_emo_0"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="vivid_emo" value="2" required="" id="id_vivid_emo_1"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="vivid_emo" value="3" required="" id="id_vivid_emo_2"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="vivid_emo" value="4" required="" id="id_vivid_emo_3"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="vivid_emo" value="5" required="" id="id_vivid_emo_4"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="vivid_emo" value="6" required="" id="id_vivid_emo_5"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="vivid_emo" value="7" required="" id="id_vivid_emo_6"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <br>
+        </div>
+        <div class="controls  field-valence_emo" id="id_form_valence_emo">
+            <table id="valence_emo" class="likert" style="display: table">
+                <tr>
+                    <td></td>
+                    <td>非常积极</td>
+                    <td>比较积极</td>
+                    <td>有些积极</td>
+                    <td>一般</td>
+                    <td>有些消极</td>
+                    <td>比较消极</td>
+                    <td>非常消极</td>
+                </tr>
+                <tr>
+                    <td class="ques_text"><p>这个事件整体上_______。</p></td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="valence_emo" value="1" required="" id="id_valence_emo_0"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="valence_emo" value="2" required="" id="id_valence_emo_1"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="valence_emo" value="3" required="" id="id_valence_emo_2"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="valence_emo" value="4" required="" id="id_valence_emo_3"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="valence_emo" value="5" required="" id="id_valence_emo_4"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="valence_emo" value="6" required="" id="id_valence_emo_5"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="valence_emo" value="7" required="" id="id_valence_emo_6"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <br>
+        </div>
+        <div class="controls  field-diff_emo" id="id_form_diff_emo">
+            <table id="diff_emo" class="likert" style="display: table">
+                <tr>
+                    <td></td>
+                    <td>非常困难</td>
+                    <td>比较困难</td>
+                    <td>有些困难</td>
+                    <td>一般</td>
+                    <td>有些容易</td>
+                    <td>比较容易</td>
+                    <td>非常容易</td>
+                </tr>
+                <tr>
+                    <td class="ques_text"><p>{{ action }}这件事对我来说_______。</p></td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="diff_emo" value="1" required="" id="id_diff_emo_0"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="diff_emo" value="2" required="" id="id_diff_emo_1"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="diff_emo" value="3" required="" id="id_diff_emo_2"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="diff_emo" value="4" required="" id="id_diff_emo_3"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="diff_emo" value="5" required="" id="id_diff_emo_4"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="diff_emo" value="6" required="" id="id_diff_emo_5"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="diff_emo" value="7" required="" id="id_diff_emo_6"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <br>
+        </div>
+         <div class="controls  field-gotcha" id="id_form_gotcha">
+            <table id="gotcha" class="likert" style="display: table">
+                <tr>
+                    <td></td>
+                    <td>非常困难</td>
+                    <td>比较困难</td>
+                    <td>有些困难</td>
+                    <td>一般</td>
+                    <td>有些容易</td>
+                    <td>比较容易</td>
+                    <td>非常容易</td>
+                </tr>
+                <tr>
+                    <td class="ques_text"><p>此题请选{{ gotcha_label }}。</p></td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="gotcha" value="1" required="" id="id_gotcha_0"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="gotcha" value="2" required="" id="id_gotcha_1"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="gotcha" value="3" required="" id="id_gotcha_2"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="gotcha" value="4" required="" id="id_gotcha_3"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="gotcha" value="5" required="" id="id_gotcha_4"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="gotcha" value="6" required="" id="id_gotcha_5"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="gotcha" value="7" required="" id="id_gotcha_6"
+                                   class="form-check-input">
+                        </div>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <br>
+        </div>
+    </div>
+</form>
+
+{{ form.role_emo.errors }}
+{{ form.self_emo.errors }}
+{{ form.clear_emo.errors }}
+{{ form.isolate_emo.errors }}
+{{ form.sub_time.errors }}
+{{ form.vivid_emo.errors }}
+{{ form.valence_emo.errors }}
+{{ form.diff_emo.errors }}
+{{ form.diff_emo.errors }}
+
+<div class="next_button_after">{% next_button %}</div>
+
+{% block main_script %}
+<script>
+    window.onload = shuffle_divs();
+    let self_emo = document.getElementById('self_emo');
+    self_emo.addEventListener('click', hide_it);
+
+    setTimeout(show_button, 30000);
+
+    function show_button() {
+        let next_button = document.querySelector('.next_button_after');
+        next_button.style.display = 'block';
+    }
+
+    function hide_it() {
+        let self_radio = document.getElementById('id_self_emo_0');
+        let clear_radio = document.getElementById('id_clear_emo_0')
+        let clear_emo = document.getElementById('id_form_clear_emo');
+        if (self_radio.checked) {
+            clear_emo.style.display = 'none';
+            clear_radio.checked = 1;
+        } else if ((!self_radio.checked) && (clear_emo.style.display === 'none')) {
+            clear_radio.checked = false;
+            clear_emo.style.display = 'block';
+        }
+    }
+
+    function shuffle_divs() {
+        let total_form = document.querySelector('#total_form');
+        let order = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+        order = shuffle(order);
+        console.log(order.indexOf(8));
+
+        let ques0 = document.querySelector('#id_form_role_emo');
+        let ques1 = document.querySelector('#id_form_self_emo');
+        let ques2 = document.querySelector('#id_form_clear_emo');
+        let ques3 = document.querySelector('#id_form_isolate_emo');
+        let ques4 = document.querySelector('#id_form_sub_time');
+        let ques5 = document.querySelector('#id_form_valence_emo');
+        let ques6 = document.querySelector('#id_form_vivid_emo');
+        let ques7 = document.querySelector('#id_form_diff_emo');
+        let ques8 = document.querySelector('#id_form_gotcha');
+
+
+        let new_node = document.createElement('div');
+        total_form.insertBefore(new_node, ques0);
+
+        for (let i = 0; i < 9; i += 1) {
+            switch (order[i]) {
+                case 0:
+                    total_form.insertBefore(ques0, new_node);
+                    break;
+                case 1:
+                    total_form.insertBefore(ques1, new_node);
+                    break;
+                case 2:
+                    total_form.insertBefore(ques2, new_node);
+                    break;
+                case 3:
+                    total_form.insertBefore(ques3, new_node);
+                    break;
+                case 4:
+                    total_form.insertBefore(ques4, new_node);
+                    break;
+                case 5:
+                    total_form.insertBefore(ques5, new_node);
+                    break;
+                case 6:
+                    total_form.insertBefore(ques6, new_node);
+                    break;
+                case 7:
+                    total_form.insertBefore(ques7, new_node);
+                    break;
+                case 8:
+                    total_form.insertBefore(ques8, new_node);
+            }
+        }
+
+        total_form.removeChild(new_node);
+    }
+
+    function shuffle(arr) {
+        let len = arr.length;
+        let exit = false;
+        while (!exit) {
+            for (let i = 0; i < len - 1; i++) {
+                let index = parseInt(Math.random() * (len - i));
+                let temp = arr[index];
+                arr[index] = arr[len - i - 1];
+                arr[len - i - 1] = temp;
+            }
+            exit = arr.indexOf(1) < arr.indexOf(2);
+        }
+        return arr;
+    }
+</script>
+{% endblock %}
+
+
+{% endblock %}

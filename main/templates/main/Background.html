@@ -1,0 +1,42 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block content %}
+<p>请您大致{{ action }}从今天起的{{ direction }}您的境况（回忆即可，不用回答），并回答以下问题</p>
+<br>
+<form action="" method="post">
+    <div class="form-group required">
+        <div class="controls  field-age">
+            <p>1. 您在{{ direction }}的年龄是<input type="number" name="age" required="" id="id_age"
+                       class="form-check-input" placeholder="数字">
+                <span style="position: absolute; margin-left:60px">岁</span>
+            </p>
+        </div>
+        <div class="controls field-city">
+            <p>
+                2. 您在{{ direction }}主要生活在
+                <input type="text" name="city" required="" id="id_city"
+                       class="form-check-input" placeholder="城市">
+            </p>
+        </div>
+    </div>
+</form>
+
+{{ form.age.errors }}
+{{ form.city.errors }}
+
+<div class="next_button_after">{% next_button %}</div>
+
+{% block practice_script %}
+<script>
+    setTimeout(show_button, 10000);
+
+    function show_button() {
+        let next_button = document.querySelector('.next_button_after');
+        next_button.style.display = 'block';
+    }
+</script>
+{% endblock %}
+
+{% endblock %}

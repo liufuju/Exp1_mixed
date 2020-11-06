@@ -1,0 +1,87 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block content %}
+<p>请您<strong>仔细作答</strong>以下问题（输入大写字母）</p>
+<p>作答错误将影响您的实验报酬</p>
+<br>
+<form action="" method="post">
+    <div class="form-group required">
+        <div id='cmp_pic1_form' class="controls  field-cmp_response1">
+            <div><img src="{% static cmp_pic1 %}" alt="cmp_pic1" class="cmp_pic"></div>
+            <br>
+            <div class="cmp_ques">
+                <p>上图中由小字母组成的<strong>大字母</strong>是
+                    <input type="text" name="cmp_response1" required="" id="id_cmp_response1"
+                           class="form-check-input">
+                </p>
+            </div>
+            <br>
+            <br>
+        </div>
+        <div id='cmp_pic2_form' class="controls  field-cmp_response1">
+            <div><img src="{% static cmp_pic2 %}" alt="cmp_pic2" class="cmp_pic"></div>
+            <br>
+            <div class="cmp_ques">
+                <p>上图中的<strong>小字母</strong>是
+                    <input type="text" name="cmp_response2" required="" id="id_cmp_response2"
+                           class="form-check-input">
+                </p>
+            </div>
+            <br>
+            <br>
+        </div>
+        <div id='cmp_pic3_form' class="controls  field-cmp_response1">
+            <div><img src="{% static cmp_pic3 %}" alt="'cmp_pic3" class="cmp_pic"></div>
+            <br>
+            <div class="cmp_ques">
+                <p>上图中由小字母组成的<strong>大字母</strong>是
+                    <input type="text" name="cmp_response3" required="" id="id_cmp_response3"
+                           class="form-check-input">
+                </p>
+            </div>
+            <br>
+            <br>
+        </div>
+        <div id='cmp_pic4_form' class="controls  field-cmp_response1">
+            <div><img src="{% static cmp_pic4 %}" alt="'cmp_pic4" class="cmp_pic"></div>
+            <br>
+            <div class="cmp_ques">
+                <p>上图中由小字母组成的<strong>大字母</strong>是
+                    <input type="text" name="cmp_response4" required="" id="id_cmp_response4"
+                           class="form-check-input">
+                </p>
+            </div>
+            <br>
+            <br>
+        </div>
+    </div>
+</form>
+
+{{ form.cmp_response1.errors }}
+{{ form.cmp_response2.errors }}
+{{ form.cmp_response3.errors }}
+{{ form.cmp_response4.errors }}
+
+
+{% next_button %}
+
+{% block main_script %}
+<script>
+    window.onload = function () {
+        let cmp_ques1 = document.querySelector('#cmp_pic1_form');
+        let cmp_ques2 = document.querySelector('#cmp_pic2_form');
+        let cmp_ques3 = document.querySelector('#cmp_pic3_form');
+        let order = Math.floor(Math.random() * 4);
+
+        if (order === 1) {
+            cmp_ques1.parentNode.insertBefore(cmp_ques2, cmp_ques1);
+        } else if (order === 3) {
+            cmp_ques2.parentNode.insertBefore(cmp_ques3, cmp_ques2);
+        }
+    }
+</script>
+{% endblock %}
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+<p>实验主要部分已结束，您可稍事休息，然后填写如下问题。</p>
+<br>
+<p>您在实验进行过程中是否有遇到任何问题或阻碍？（页面设计不合理等等）</p>
+{% formfield player.difficulty_debrief %}
+<br>
+<br>
+<p>您在回忆过程中是否有某时感到困难？若有，是在回忆什么事件的时候？</p>
+{% formfield player.imagination_diff %}
+<br>
+<br>
+<p>您在回忆某个事件的时候中是否感到先前回忆事件的干扰？若有，干扰是来自什么事件？</p>
+{% formfield player.disturbance %}
+<br>
+<br>
+<p>您认为本实验的目的是？</p>
+{% formfield player.purpose_debrief %}
+
+    {% next_button %}
+
+{% endblock %}

@@ -1,0 +1,180 @@
+{% extends "otree/Page.html" %}
+{% load otree static %}
+
+{% block global_styles  %}
+<style>
+    html {
+        width: 1100px;
+        margin: auto;
+        background-color: white;
+    }
+
+    body {
+        margin-top: 7%;
+        margin-bottom: 10%;
+        padding-top: 2%;
+        padding-bottom: 7%;
+        background-color: rgba(1, 1, 1, 0.06);
+        border-radius: 1em;
+    }
+
+    input[type=text], input[type=number] {
+        margin-left: 7%;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: solid 2px black;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-top-left-radius: 0.3em;
+        border-top-right-radius: 0.3em;
+        background-color: rgba(20, 20, 20, 0.05);
+    }
+
+    ol, ul {
+        margin-left: 5%;
+        margin-right: 6%;
+        font-size: 1.1em;
+    }
+
+    li {
+        margin-top: 2%;
+    }
+
+    input[type=radio] {
+        display: inline-block;
+        position: relative;
+        height: 24px;
+        width: 24px;
+        color: crimson;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+    }
+
+    .likert {
+        margin-left: 3.5%;
+        margin-right: 5.5%;
+    }
+
+    .likert td {
+        text-align: center;
+        width: 1.2%;
+        padding: 0.5%;
+        display: table-cell;
+    }
+
+    p.hint {
+        margin-left: 10%;
+        margin-right: 11%;
+        font-size: 1.3em;
+        font-weight: bold;
+    }
+
+    td.ques_text {
+        width: 10%;
+        text-align: left;
+    }
+
+
+    .col-form-label, p {
+        margin-left: 7%;
+        font-size: 1.2em;
+        margin-right: 6%;
+    }
+
+    .otree-btn-next {
+        margin-top: 20%;
+        margin-left: 90%;
+        margin-bottom: 3%;
+        background-color: #144a74;
+        border-color: #144a74;
+        font-size: 1.05em;
+    }
+
+    .otree-btn-next:hover {
+        background-color: #2775b6;
+        border-color: #2775b6;
+        font-size: 1.05em;
+    }
+
+    .next_button_after {
+        display: none;
+    }
+
+    .cmp_pic, .cmp_ques {
+        width: 66%;
+        height: 66%;
+        margin-left: 17%;
+        margin-right: 17%;
+        border-radius: 1.5em;
+        display: block;
+    }
+
+    #id_age, #id_city {
+        margin: 0 5px 0 5px;
+        padding: 0 0 0 0;
+        max-width: 80px;
+    }
+
+
+    #id_name, #id_student_id, #id_exp_date {
+        width: 30%;
+        max-width: 100%
+    }
+
+    .title {
+        margin-left: 7%;
+        font-size: 2.5em;
+    }
+
+    #id_cmp_response1, #id_cmp_response2, #id_cmp_response3, #id_cmp_response4 {
+        margin: 0 5px 0 5px;
+        padding: 0 0 0 0;
+        max-width: 160px;
+    }
+
+
+    input[name=short_dscp] {
+        width: 60%;
+    }
+
+    #the_event {
+        margin-left: 9%;
+        margin-right: 8%;
+    }
+
+    #total_form {
+        background-color: rgba(20, 20, 20, 0.03);
+        border-radius: 1.5em;
+        border: solid 2px #144a74;
+        padding-top: 4em;
+    }
+
+    #id_dscp_emo {
+        margin-left: 7%;
+        border: solid 1px black;
+        border-radius: 0.3em;
+        background-color: rgba(20, 20, 20, 0.05);
+        width: 82%;
+        max-width: 100%;
+    }
+
+    #id_difficulty_debrief, #id_purpose_debrief, #id_imagination_diff, #id_disturbance {
+        margin-left: 7%;
+        border: solid 1px black;
+        border-radius: 0.3em;
+        background-color: rgba(20, 20, 20, 0.05);
+        width: 82%;
+        max-width: 100%;
+        max-height: 140px;
+    }
+
+
+</style>
+
+
+{% endblock %}
+
+{% block global_scripts  %}
+{% endblock %}

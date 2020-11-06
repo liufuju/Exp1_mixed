@@ -1,0 +1,32 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block content %}
+<p class="title">正式实验阶段</p>
+<p>现在将进入正式实验阶段。</p>
+<ol>
+    <li>该阶段将请您<strong>{{ action }}{{ time }}</strong>的4个<strong>特定</strong>事件，并回答相关问题。</li>
+    <li>该阶段问题的要求与练习相同，请您尽可能按照与练习阶段相同的方式回答问题。</li>
+    <li>如有任何疑问，可随时询问实验员。</li>
+    <li>您依然有权退出本实验。</li>
+</ol>
+<p>建议您在此页休息片刻。</p>
+
+
+
+<div class="next_button_after"><p>若您准备好了，可请点击下方按钮开始。</p>{% next_button %}</div>
+
+{% block main_script %}
+<script>
+    setTimeout(show_button, 15000);
+
+    function show_button() {
+        let next_button = document.querySelector('.next_button_after');
+        next_button.style.display = 'block';
+    }
+</script>
+
+{% endblock %}
+
+{% endblock %}

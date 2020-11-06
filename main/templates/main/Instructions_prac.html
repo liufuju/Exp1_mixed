@@ -1,0 +1,31 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block content %}
+<p class="title">练习阶段</p>
+<p>现在是练习阶段，目的是请您熟悉实验的大致内容与要求。</p>
+<ol>
+    <li>该阶段将请您<strong>{{ action }}{{ time }}</strong>的事件，并回答相关问题。</li>
+    <li>请您留意页面的问题要求，如因您未遵守页面提及的要求，据知情同意书条款，我们有权依据数据结果不支付报酬。</li>
+    <li>正式实验阶段与练习阶段要求相同，但无提示，请您尽可能在练习阶段准确理解要求，并在正式实验中按照相同的要求回答问题。</li>
+    <li>如对内容有任何疑问，请及时询问实验员。</li>
+    <li>您依然有权退出本实验。</li>
+</ol>
+
+
+<div class="next_button_after"><p>若您准备好了，请点击下方按钮开始练习。</p>{% next_button %}</div>
+
+{% block practice_script %}
+<script>
+    setTimeout(show_button, 10000);
+
+    function show_button() {
+        let next_button = document.querySelector('.next_button_after');
+        next_button.style.display = 'block';
+    }
+</script>
+
+{% endblock %}
+
+{% endblock %}

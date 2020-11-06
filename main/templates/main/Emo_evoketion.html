@@ -1,0 +1,86 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+<div id="round_hint">
+    <p class="title"><strong>No. {{ round_number }}</strong></p>
+    <br>
+</div>
+
+<p id="back_info" class="hint">{{ direction }}，您是{{ age }}岁，在{{ city }}生活</p>
+<br>
+
+<div id="event_gen_main">
+    <p>请您{{ action }}一个发生在{{ direction }}的单独事件，在事件中：</p>
+    <p id="emo_dscp_main" class="hint">{{ emo_dscp }}</p>
+</div>
+
+<div id="event_gen_prac">
+    <p>请您{{ action }}一个发生在{{ direction }}的任意单独事件</p>
+</div>
+<br>
+
+<p>这个事件应当：</p>
+<ol>
+    <li>有明确的发生地点与时间</li>
+    <li>持续时间不超过12小时</li>
+    <li>尽量与本实验过程中回忆的其他事件无关</li>
+</ol>
+
+<br>
+<p>请您用一句话描述该事件的大致内容</p>
+{% formfield player.short_dscp %}
+
+<p>该事件的具体发生时间是（尽可能具体到年/月/日）</p>
+{% formfield player.exact_time %}
+
+<p>该事件最令你印象深刻的、或最关键的部分是</p>
+{% formfield player.event_core %}
+
+<div id="prac_example">
+    <br>
+    <br>
+    <p>例如：</p>
+    <ul>
+        <li>大致内容：导师在<strong>办公室</strong>和我讨论毕设的事情，告诉我研究的进展很顺利，必能正常毕业</li>
+        <li>具体时间：12月末的某一天</li>
+        <li>关键部分：导师在椅子坐直，说“你的毕设很顺利，肯定能顺利毕业。”</li>
+    </ul>
+    <br>
+</div>
+
+
+<div class="next_button_after">{% next_button %}</div>
+
+{% block main_script %}
+<script>
+    setTimeout(show_button, 30000);
+    window.onload = hide();
+
+
+    function show_button() {
+        let next_button = document.querySelector('.next_button_after');
+        next_button.style.display = 'block';
+    }
+
+    function hide() {
+        let round_number = js_vars.round_number;
+        let prac_prompt = document.querySelector('#event_gen_prac');
+        let main_prompt = document.querySelector('#event_gen_main');
+        let prac_example = document.querySelector('#prac_example');
+
+        if (round_number === 1) {
+            main_prompt.style.display = 'none';
+        }
+        else {
+            prac_prompt.style.display = 'none';
+            prac_example.style.display = 'none';
+        }
+
+
+    }
+</script>
+
+{% endblock %}
+
+{% endblock %}

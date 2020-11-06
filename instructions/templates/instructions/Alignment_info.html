@@ -1,0 +1,16 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+
+{% block content %}
+
+    {% formfield player.name %}
+    {% formfield player.student_id %}
+    {% formfield player.exp_date %}
+
+    {% next_button %}
+
+
+
+{% endblock %}
