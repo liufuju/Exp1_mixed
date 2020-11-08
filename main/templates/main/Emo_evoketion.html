@@ -60,7 +60,6 @@
     setTimeout(show_button, 30000);
     window.onload = hide();
 
-
     function show_button() {
         let next_button = document.querySelector('.next_button_after');
         next_button.style.display = 'block';
@@ -68,6 +67,7 @@
 
     function hide() {
         let round_number = js_vars.round_number;
+        let round_hint = document.querySelector('#round_hint');
         let prac_prompt = document.querySelector('#event_gen_prac');
         let main_prompt = document.querySelector('#event_gen_main');
         let prac_example = document.querySelector('#prac_example');
@@ -77,14 +77,13 @@
         if (round_number === 1) {
             main_prompt.style.display = 'none';
             main_core_prompt.style.display = 'none';
+            round_hint.style.display = 'none';
         }
         else {
             prac_prompt.style.display = 'none';
             prac_example.style.display = 'none';
             prac_core_prompt.style.display = 'none';
         }
-
-
     }
 </script>
 
