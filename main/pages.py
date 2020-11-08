@@ -99,7 +99,7 @@ class Emo_evoketion(Page):
             city=city,
             round_number=self.round_number - 1,
             action=texts['action'][mode],
-            direction=texts['direction'][mode]
+            direction=texts['direction'][mode],
         )
 
     def js_vars(self):

@@ -31,11 +31,14 @@
 <p>请您用一句话描述该事件的大致内容</p>
 {% formfield player.short_dscp %}
 
+<p id="prac_core_prompt">该事件中，最关键、或最令你印象深刻的部分是</p>
+<p id="main_core_prompt">该事件中，你上述感受最强烈的部分是</p>
+{% formfield player.event_core %}
+
 <p>该事件的具体发生时间是（尽可能具体到年/月/日）</p>
 {% formfield player.exact_time %}
 
-<p>该事件最令你印象深刻的、或最关键的部分是</p>
-{% formfield player.event_core %}
+
 
 <div id="prac_example">
     <br>
@@ -44,7 +47,7 @@
     <ul>
         <li>大致内容：导师在<strong>办公室</strong>和我讨论毕设的事情，告诉我研究的进展很顺利，必能正常毕业</li>
         <li>具体时间：12月末的某一天</li>
-        <li>关键部分：导师在椅子坐直，说“你的毕设很顺利，肯定能顺利毕业。”</li>
+        <li>最关键部分：导师在椅子坐直，说“你的毕设很顺利，肯定能顺利毕业。”</li>
     </ul>
     <br>
 </div>
@@ -68,13 +71,17 @@
         let prac_prompt = document.querySelector('#event_gen_prac');
         let main_prompt = document.querySelector('#event_gen_main');
         let prac_example = document.querySelector('#prac_example');
+        let prac_core_prompt = document.querySelector('#prac_core_prompt');
+        let main_core_prompt = document.querySelector('#main_core_prompt');
 
         if (round_number === 1) {
             main_prompt.style.display = 'none';
+            main_core_prompt.style.display = 'none';
         }
         else {
             prac_prompt.style.display = 'none';
             prac_example.style.display = 'none';
+            prac_core_prompt.style.display = 'none';
         }
 
 
