@@ -1,7 +1,7 @@
 code	used	0	1	2	3	4
-1	0	none	desire	relaxation	anger	sadness
-2	0	none	desire	relaxation	sadness	anger
-3	0	none	desire	anger	relaxation	sadness
+1	1	none	desire	relaxation	anger	sadness
+2	1	none	desire	relaxation	sadness	anger
+3	1	none	desire	anger	relaxation	sadness
 4	0	none	desire	anger	sadness	relaxation
 5	0	none	desire	sadness	relaxation	anger
 6	0	none	desire	sadness	anger	relaxation
@@ -23,4 +23,3 @@ code	used	0	1	2	3	4
 22	0	none	sadness	relaxation	anger	desire
 23	0	none	sadness	anger	desire	relaxation
 24	0	none	sadness	anger	relaxation	desire
-

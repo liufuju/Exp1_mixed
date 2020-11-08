@@ -44,6 +44,7 @@ def order_retrieval(order_path):
         if get:
             order_data.iloc[i, 1] = 1
             order = [
+                order_data['0'].iloc[i],
                 order_data['1'].iloc[i],
                 order_data['2'].iloc[i],
                 order_data['3'].iloc[i],
