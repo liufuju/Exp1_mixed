@@ -6,15 +6,33 @@ SESSION_CONFIGS = [
         display_name="Exp1_mixed_future",
         num_demo_participants=3,
         app_sequence=['instructions', 'main', 'debriefing'],
-        mode=1
+        mode=1,
+        order_file='order.txt'
     ),
     dict(
         name='Exp1_mixed_past',
         display_name="Exp1_mixed_past",
         num_demo_participants=3,
         app_sequence=['instructions', 'main', 'debriefing'],
-        mode=0
+        mode=0,
+        order_file='order.txt'
     ),
+    dict(
+        name='Exp1_mixed_past_female',
+        display_name="Exp1_mixed_past_female",
+        num_demo_participants=3,
+        app_sequence=['instructions', 'main', 'debriefing'],
+        mode=0,
+        order_file='order_past_female.txt'
+    ),
+    dict(
+        name='Exp1_mixed_past_male',
+        display_name="Exp1_mixed_past_male",
+        num_demo_participants=3,
+        app_sequence=['instructions', 'main', 'debriefing'],
+        mode=0,
+        order_file='order_past_male.txt'
+    )
 ]
 
 # if you set a property in SESSION_CONFIG_DEFAULTS, it will be inherited by all configs

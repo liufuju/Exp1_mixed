@@ -11,7 +11,7 @@ class Alignment_info(Page):
 class Instruction(Page):
     def before_next_page(self):
         pwd = os.getcwd()
-        emo_order_file = 'order.txt'
+        emo_order_file = self.session.config['order_file']
         dscp_file = 'emo_dscp.js'
 
         folder = 'reference'
