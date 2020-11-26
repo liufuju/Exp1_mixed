@@ -34,12 +34,31 @@ SESSION_CONFIGS = [
         order_file='order_past_male.txt'
     ),
     dict(
-        name='Exp2_future',
-        display_name='Exp2_future',
+        name='Exp2_future_rasp1',
+        display_name='Exp2_future_rasp1',
         num_demo_participants=3,
         app_sequence=['instructions', 'novel_combination', 'novel_future', 'debriefing'],
         mode=1,
-        order_file='order_future.txt'
+        order_file='order_future.txt',
+        rasp_number=1
+    ),
+    dict(
+        name='Exp2_future_rasp2',
+        display_name='Exp2_future_rasp2',
+        num_demo_participants=3,
+        app_sequence=['instructions', 'novel_combination', 'novel_future', 'debriefing'],
+        mode=1,
+        order_file='order_future.txt',
+        rasp_number=2
+    ),
+    dict(
+        name='Exp2_future_rasp3',
+        display_name='Exp2_future_rasp3',
+        num_demo_participants=3,
+        app_sequence=['instructions', 'novel_combination', 'novel_future', 'debriefing'],
+        mode=1,
+        order_file='order_future.txt',
+        rasp_number=3
     )
 ]
 

@@ -2,6 +2,7 @@ from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
 import os, random, pandas
+import paramiko
 
 
 class Instructions_main(Page):
@@ -74,6 +75,9 @@ class Emo_evoketion(Page):
 
     def before_next_page(self):
         self.player.emo = self.participant.vars['emotions'][self.round_number - 1]
+        rasp_number = self.session.config['rasp_number']
+        client = ssh_connect(rasp_number)
+        work_on_my_video(client, 'sudo motion')
 
     form_model = 'player'
     form_fields = ['short_dscp', 'exact_time', 'event_core']
@@ -87,6 +91,11 @@ class Imagination(Page):
             event=event,
             event_core=event_core
         )
+
+    def before_next_page(self):
+        rasp_number = self.session.config['rasp_number']
+        client = ssh_connect(rasp_number)
+        work_on_my_video(client, 'sudo service motion stop')
 
 
 class Question_filling(Page):
@@ -129,6 +138,23 @@ class Description(Page):
 
     form_model = 'player'
     form_fields = ['dscp_emo']
+
+
+def ssh_connect(rasp_number):
+    HOST = '39.105.99.86'
+    USER = 'pi'
+    PWD = 'horace13940349!!'
+    PORTs = [6000, 5000, 4000]
+
+    client = paramiko.SSHClient()
+    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+    client.connect(hostname=HOST, port=PORTs[rasp_number - 1], username=USER, password=PWD)
+
+    return client
+
+
+def work_on_my_video(client, command):
+    client.exec_command(command)
 
 
 page_sequence = [Instructions_main, Instructions_prac, Emo_evoketion, Composition, Imagination,
