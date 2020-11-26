@@ -32,6 +32,14 @@ SESSION_CONFIGS = [
         app_sequence=['instructions', 'main', 'debriefing'],
         mode=0,
         order_file='order_past_male.txt'
+    ),
+    dict(
+        name='Exp2_future',
+        display_name='Exp2_future',
+        num_demo_participants=3,
+        app_sequence=['instructions', 'novel_combination', 'novel_future', 'debriefing'],
+        mode=1,
+        order_file='order_future.txt'
     )
 ]
 

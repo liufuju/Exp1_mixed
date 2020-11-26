@@ -1,0 +1,38 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block content %}
+<p>您设想的事件是：</p>
+<p id="the_event" class="hint">{{ event }}</p>
+<p>该事件最关键的部分是：</p>
+<p id="event_core" class="hint">{{ event_core }}</p>
+<br>
+<p>现在请您尽可能体会那时您可能有的感受.</p>
+<p>然后闭上眼睛，想象<strong>&quot{{ event_core }}&quot正在进行时的情景</strong>。 </p>
+<p>闭眼时长约45s，到时将有声音提示您睁眼。</p>
+
+<div class="next_button_after">{% next_button %}</div>
+<audio
+    src="{% static 'sound/ding.mp3' %}"
+    id="audio"
+    class="before_button">
+</audio>
+
+{% block main_script %}
+<script>
+    setTimeout(play_audio, 50000);
+
+    function play_audio() {
+        let audio = document.querySelector('#audio');
+        audio.addEventListener('ended', show_button);
+        audio.play();
+    }
+
+    function show_button() {
+        let next_button = document.querySelector('.next_button_after');
+        next_button.style.display = 'block';
+    }
+</script>
+{% endblock %}
+
+{% endblock %}

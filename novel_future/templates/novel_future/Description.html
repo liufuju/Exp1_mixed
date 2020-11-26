@@ -1,0 +1,52 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block content %}
+<p>您设想的事件是：</p>
+<p id="the_event" class="hint">{{ event }}</p>
+<p>该事件最关键的部分是：</p>
+<p id="event_core" class="hint">{{ event_core }}</p>
+<br>
+<p>请您回忆您方才<strong>闭眼过程中</strong>脑海里出现的内容，包括情景及其他内容，并在下方用<strong>简洁</strong>的文字尽可能<strong>完整、准确</strong>地描述它们（尽量不要删改）</p>
+{% formfield player.dscp_emo %}
+<p>注：字数上限300字，三五句话为宜，过长可能导致您实验总时间超时，耽误您其他事务。</p>
+<div id="dscp_example">
+    <br>
+    <p>例如：</p>
+    <ul>
+        <li><strong>12月末某一天</strong>，导师在<strong>办公室</strong>告诉我，研究的进展很顺利，必能正常毕业</li>
+        <li>
+            12月末某一天，例行讨论会上，我报告了研究的一些内容，老师很满意。本来他是抱手仰靠在座椅上，听到赞许处他坐正了一些。这让我感到放心，甚至有一些得意。会后，导师叫我去办公室继续谈，进了办公室，老师特意嘱咐我不要关门，然后我坐在沙发上跟老师谈了一会儿，老师听着露出了笑容，夸赞说你肯定能正常毕业，说不定能早些达到毕业要求呢。
+        </li>
+    </ul>
+    <br>
+</div>
+
+
+<div class="next_button_after">{% next_button %}</div>
+
+{% block practice_script %}
+<script>
+    setTimeout(show_button, 30000);
+    window.onload = hide();
+
+    function show_button() {
+        let next_button = document.querySelector('.next_button_after');
+        next_button.style.display = 'block';
+    }
+
+    function hide() {
+        let round_number = js_vars.round_number;
+        let prac_example = document.querySelector('#dscp_example');
+        if (round_number !== 1) {
+            prac_example.style.display = 'none';
+        }
+
+    }
+
+</script>
+
+{% endblock %}
+
+{% endblock %}

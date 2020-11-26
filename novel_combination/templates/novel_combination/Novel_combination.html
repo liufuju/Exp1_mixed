@@ -1,0 +1,98 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+
+{% block content %}
+<p id="back_info" class="hint">一年后，您是{{ age }}岁，在{{ city }}生活</p>
+<br>
+
+<p>请您设想一年后您的生活。</p>
+
+<form action="" method="post">
+    <p>在您熟悉的人中，您预计您一年后将接触最频繁的五个人是：</p>
+    <p>（请填写您最常用的对他们的称呼，或他们于您而言的身份）</p>
+    <div class="form-group required">
+        <div id='person1_form' class="controls  field-person1">
+            <input type="text" name="person1" required="" id="id_person1"
+                   class="form-check-input">
+        </div>
+        <br>
+        <br>
+        <div id='person2_form' class="controls  field-person2">
+            <input type="text" name="person2" required="" id="id_person2"
+                   class="form-check-input">
+        </div>
+        <br>
+        <br>
+        <div id='person3_form' class="controls  field-person3">
+            <input type="text" name="person3" required="" id="id_person3"
+                   class="form-check-input">
+        </div>
+        <br>
+        <br>
+        <div id='person4_form' class="controls  field-person4">
+            <input type="text" name="person4" required="" id="id_person4"
+                   class="form-check-input">
+        </div>
+        <br>
+        <br>
+        <div id='person5_form' class="controls  field-person5">
+            <input type="text" name="person5" required="" id="id_person5"
+                   class="form-check-input">
+        </div>
+        <br>
+        <br>
+    </div>
+    <br>
+    <p>在您熟悉的地点中，您预计您一年后将最频繁地去到五个是:</p>
+    <p>（尽量具体明确，如“北师大教八楼”）</p>
+    <br>
+    <div class="form-group required">
+        <div id='place1_form' class="controls  field-place1">
+            <input type="text" name="place1" required="" id="id_place1"
+                   class="form-check-input">
+        </div>
+        <br>
+        <br>
+        <div id='place2_form' class="controls  field-place2">
+            <input type="text" name="place2" required="" id="id_place2"
+                   class="form-check-input">
+        </div>
+        <br>
+        <br>
+        <div id='place3_form' class="controls  field-place3">
+            <input type="text" name="place3" required="" id="id_place3"
+                   class="form-check-input">
+        </div>
+        <br>
+        <br>
+        <div id='place4_form' class="controls  field-place4">
+            <input type="text" name="place4" required="" id="id_place4"
+                   class="form-check-input">
+        </div>
+        <br>
+        <br>
+        <div id='place5_form' class="controls  field-place5">
+            <input type="text" name="place5" required="" id="id_place5"
+                   class="form-check-input">
+        </div>
+        <br>
+        <br>
+    </div>
+</form>
+
+{{ form.person1.errors }}
+{{ form.person2.errors }}
+{{ form.person3.errors }}
+{{ form.person4.errors }}
+{{ form.person5.errors }}
+{{ form.place1.errors }}
+{{ form.place2.errors }}
+{{ form.place3.errors }}
+{{ form.place4.errors }}
+{{ form.place5.errors }}
+
+
+{% next_button %}
+
+{% endblock %}

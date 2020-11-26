@@ -7,48 +7,47 @@
     <br>
 </div>
 
-<p id="back_info" class="hint">{{ direction }}，您是{{ age }}岁，在{{ city }}生活</p>
+<p id="back_info" class="hint">一年后，您是{{ age }}岁，在{{ city }}生活</p>
 <br>
 
 <div id="event_gen_main">
-    <p>请您{{ action }}一个发生在{{ direction }}的单独事件，在事件中：</p>
+    <p>请您设想一个在一年后、在<strong>{{ place }}</strong>、您与<strong>{{ person }}</strong>一起时发生的单独事件</p>
+    <p>且在一年后的那时：</p>
     <p id="emo_dscp_main" class="hint">{{ emo_dscp }}</p>
 </div>
 
 <div id="event_gen_prac">
-    <p>请您{{ action }}一个发生在{{ direction }}的任意单独事件</p>
+    <p>请您设想一个在一年后、在<strong>{{ place }}</strong>、您与<strong>{{ person }}</strong>一起时发生的任意单独事件。</p>
 </div>
 <br>
 
 <p>这个事件应当：</p>
 <ol>
-    <li>有明确的发生地点与时间</li>
+    <li>有相对明确的发生地点与时间</li>
     <li>持续时间不超过12小时</li>
-    <li>尽量与本实验过程中回忆的其他事件无关</li>
+    <li>尽量与本实验过程中设想的其他事件无关</li>
 </ol>
 
 <br>
 <p>请您用一句话描述该事件的大致内容</p>
 {% formfield player.short_dscp %}
 <br>
-
-<p id="prac_core_prompt">该事件中，最关键、或最令你印象深刻的部分是</p>
-<p id="main_core_prompt">该事件中，你上述感受最强烈的部分是</p>
+<p id="prac_core_prompt">该事件中，您认为最关键的，或最可能令您有强烈感受的部分是</p>
+<p id="main_core_prompt">该事件中，您认为会令您有最强烈的上述感受的部分是</p>
 {% formfield player.event_core %}
 <br>
-
-<p>该事件的具体发生时间是（尽可能具体到年/月/日）</p>
-{% formfield player.exact_time %}s
-
+<p>您认为该事件的具体发生时间最可能是（尽可能具体到年/月/日）</p>
+{% formfield player.exact_time %}
 
 <div id="prac_example">
     <br>
     <br>
     <p>例如：</p>
     <ul>
-        <li>大致内容：导师在<strong>办公室</strong>和我讨论毕设的事情，告诉我研究的进展很顺利，必能正常毕业</li>
-        <li>具体时间：12月末的某一天</li>
+        <li>事件：一年后，在导师办公室，与导师一起</li>
+        <li>大致内容：导师在办公室和我讨论毕设的事情，告诉我研究的进展很顺利，必能正常毕业</li>
         <li>最关键部分：导师在椅子坐直，说“你的毕设很顺利，肯定能顺利毕业。”</li>
+        <li>具体时间：12月末的某一天</li>
     </ul>
     <br>
 </div>
@@ -86,6 +85,7 @@
             prac_core_prompt.style.display = 'none';
         }
     }
+
 </script>
 
 {% endblock %}
