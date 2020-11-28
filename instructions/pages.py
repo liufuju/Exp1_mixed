@@ -2,7 +2,7 @@ from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
 import os, json, pandas
-import paramiko
+import paramiko, random
 
 class Alignment_info(Page):
     form_model = 'player'
@@ -30,16 +30,23 @@ class Instruction(Page):
         emotions = order
         emo_dscp = [dscp_data[i] for i in emotions]
 
+        alphas = ['C', 'F']
+        random.shuffle(alphas)
+
         self.participant.vars['emotions'] = emotions
         self.participant.vars['emo_dscp'] = emo_dscp
+
+        self.participant.vars['alphas'] = alphas
 
         self.player.emo_order = '_'.join(emotions)
         self.player.emo_order_code = order_code
 
     def vars_for_template(self):
         exp_theme = '回忆' if self.session.config['mode'] == 0 else '想象'
+        time = self.session.config['time']
         return dict(
-            exp_theme=exp_theme
+            exp_theme=exp_theme,
+            time=time
         )
 
 

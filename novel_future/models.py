@@ -32,10 +32,10 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    age = models.IntegerField(label='')
-    city = models.StringField(label='')
     emo = models.StringField()
     exact_time = models.StringField(label='')
+    alpha = models.StringField()
+    alpha_direction = models.StringField()
 
     role_emo = models.IntegerField(label='')
     self_emo = models.IntegerField(label='')

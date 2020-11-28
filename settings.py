@@ -15,7 +15,8 @@ SESSION_CONFIGS = [
         num_demo_participants=3,
         app_sequence=['instructions', 'main', 'debriefing'],
         mode=0,
-        order_file='order.txt'
+        order_file='order.txt',
+        time=45
     ),
     dict(
         name='Exp1_mixed_past_female',
@@ -23,7 +24,8 @@ SESSION_CONFIGS = [
         num_demo_participants=3,
         app_sequence=['instructions', 'main', 'debriefing'],
         mode=0,
-        order_file='order_past_female.txt'
+        order_file='order_past_female.txt',
+        time=45
     ),
     dict(
         name='Exp1_mixed_past_male',
@@ -31,7 +33,8 @@ SESSION_CONFIGS = [
         num_demo_participants=3,
         app_sequence=['instructions', 'main', 'debriefing'],
         mode=0,
-        order_file='order_past_male.txt'
+        order_file='order_past_male.txt',
+        time=45
     ),
     dict(
         name='Exp2_future_rasp1',
@@ -40,7 +43,8 @@ SESSION_CONFIGS = [
         app_sequence=['instructions', 'novel_combination', 'novel_future', 'debriefing'],
         mode=1,
         order_file='order_future.txt',
-        rasp_number=1
+        rasp_number=1,
+        time=30
     ),
     dict(
         name='Exp2_future_rasp2',
@@ -49,7 +53,8 @@ SESSION_CONFIGS = [
         app_sequence=['instructions', 'novel_combination', 'novel_future', 'debriefing'],
         mode=1,
         order_file='order_future.txt',
-        rasp_number=2
+        rasp_number=2,
+        time=30
     ),
     dict(
         name='Exp2_future_rasp3',
@@ -58,7 +63,8 @@ SESSION_CONFIGS = [
         app_sequence=['instructions', 'novel_combination', 'novel_future', 'debriefing'],
         mode=1,
         order_file='order_future.txt',
-        rasp_number=3
+        rasp_number=3,
+        time=30
     )
 ]
 

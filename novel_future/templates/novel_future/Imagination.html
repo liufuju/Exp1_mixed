@@ -7,25 +7,56 @@
 <p>该事件最关键的部分是：</p>
 <p id="event_core" class="hint">{{ event_core }}</p>
 <br>
-<p>现在请您尽可能体会那时您可能有的感受.</p>
-<p>然后闭上眼睛，想象<strong>&quot{{ event_core }}&quot正在进行时的情景</strong>。 </p>
-<p>闭眼时长约45s，到时将有声音提示您睁眼。</p>
+<p>接下来将请您尽可能体会那时您可能有的感受，并闭眼想象事件正在进行时的情景。闭眼时长约45s，到时将会有“叮”声提示您睁眼（在“叮”声前不要睁眼）。</p>
+<p>同时，您将会在闭眼听到请您做出某种动作的<strong>语音指令</strong>，请您在听到后<strong>以最快速度</strong>迅速按指令反应。</p>
+<p>若您准备好了，请点击下方按钮开始计时，并闭上眼睛想象<strong>&quot{{ event_core }}&quot正在进行时的情景</strong>。 </p>
 
+<br>
+<button id="imagining_on" type="button">开始想象</button>
 <div class="next_button_after">{% next_button %}</div>
+
+<audio
+    src="{% static 'sound/begin_sound.mp3' %}"
+    id="begin_sound">
+</audio>
+<audio
+    src="{% static action_sound %}"
+    id="action">
+</audio>
 <audio
     src="{% static 'sound/ding.mp3' %}"
-    id="audio"
+    id="end_sound"
     class="before_button">
 </audio>
 
 {% block main_script %}
 <script>
-    setTimeout(play_audio, 50000);
+    let imagining_on = document.querySelector('#imagining_on');
+    imagining_on.addEventListener('click', begin_now);
 
-    function play_audio() {
-        let audio = document.querySelector('#audio');
-        audio.addEventListener('ended', show_button);
-        audio.play();
+    function begin_now() {
+        let imagining_on = document.querySelector('#imagining_on');
+        imagining_on.style.display = 'none';
+
+        let begin_sound = document.querySelector('#begin_sound');
+        begin_sound.addEventListener('ended', function () {
+            setTimeout(instruction_play, 45000);
+        });
+        begin_sound.play();
+        }
+
+    function instruction_play() {
+        let instruction = document.querySelector('#action');
+        instruction.addEventListener('ended', function () {
+            setTimeout(end_now, 2000);
+        });
+        instruction.play();
+    }
+
+    function end_now() {
+        let end_sound = document.querySelector('#end_sound');
+        end_sound.addEventListener('ended', show_button);
+        end_sound.play();
     }
 
     function show_button() {

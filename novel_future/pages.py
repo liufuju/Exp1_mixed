@@ -54,8 +54,8 @@ class Emo_evoketion(Page):
         emo_dscp = self.participant.vars['emo_dscp'][self.round_number - 1]
         age = self.participant.vars['age']
         city = self.participant.vars['city']
-        person = self.participant.vars['combinations']['persons'][self.round_number]
-        place = self.participant.vars['combinations']['places'][self.round_number]
+        person = self.participant.vars['combinations']['persons'][self.round_number - 1]
+        place = self.participant.vars['combinations']['places'][self.round_number - 1]
 
         return dict(
             emotion=emotion,
@@ -75,9 +75,14 @@ class Emo_evoketion(Page):
 
     def before_next_page(self):
         self.player.emo = self.participant.vars['emotions'][self.round_number - 1]
+        self.player.alpha = 'practice' if self.round_number == 1 else self.participant.vars['alphas'][self.round_number - 2]
+
         rasp_number = self.session.config['rasp_number']
         client = ssh_connect(rasp_number)
+        work_on_my_video(client, 'sudo rm -rf /var/log/motion/motion.log')
+        work_on_my_video(client, 'sudo service motion start')
         work_on_my_video(client, 'sudo motion')
+        client.close()
 
     form_model = 'player'
     form_fields = ['short_dscp', 'exact_time', 'event_core']
@@ -87,18 +92,37 @@ class Imagination(Page):
     def vars_for_template(self):
         event = self.player.short_dscp
         event_core = self.player.event_core
+        if self.round_number == 1:
+            sound = 'practice'
+        else:
+            sound = 'forehead_{}'.format(self.player.alpha)
+        action_sound = 'sound/{}.mp3'.format(sound)
+
         return dict(
             event=event,
-            event_core=event_core
+            event_core=event_core,
+            action_sound=action_sound
         )
 
     def before_next_page(self):
         rasp_number = self.session.config['rasp_number']
         client = ssh_connect(rasp_number)
         work_on_my_video(client, 'sudo service motion stop')
+        client.close()
 
 
 class Question_filling(Page):
+    def vars_for_template(self):
+        gotcha_num = random.choice(range(1, 8))
+        gotcha_drct = random.choice([0, 1])
+        drct_str = ['左数第{}项', '右数第{}项']
+        self.player.gotcha_ans = abs(8 * gotcha_drct - gotcha_num)
+
+        return dict(
+            gotcha_label=drct_str[gotcha_drct].format(gotcha_num),
+        )
+
+
     form_model = 'player'
     form_fields = [
         'role_emo',
@@ -112,15 +136,6 @@ class Question_filling(Page):
         'gotcha'
     ]
 
-    def vars_for_template(self):
-        gotcha_num = random.choice(range(1, 8))
-        gotcha_drct = random.choice([0, 1])
-        drct_str = ['左数第{}项', '右数第{}项']
-        self.player.gotcha_ans = abs(8 * gotcha_drct - gotcha_num)
-
-        return dict(
-            gotcha_label=drct_str[gotcha_drct].format(gotcha_num),
-        )
 
 class Description(Page):
     def vars_for_template(self):
@@ -154,7 +169,7 @@ def ssh_connect(rasp_number):
 
 
 def work_on_my_video(client, command):
-    client.exec_command(command)
+    (stdin, stdout, stderr) = client.exec_command(command)
 
 
 page_sequence = [Instructions_main, Instructions_prac, Emo_evoketion, Composition, Imagination,
