@@ -30,7 +30,7 @@
 
 <br>
 <div id="posi_speci" style="display: none">
-    <p>您预期这门期末考试的课程会是</p>
+    <p>您预期这门十分重要的考试会是</p>
 </div>
 <div id="nega_speci" style="display: none">
     <p>您预期您与他人的冲突会是</p>
@@ -38,11 +38,11 @@
 <div id="main_speci">
     {% formfield player.event_specification %}
 </div>
-
 <br>
 <p>您用一句话描述该事件的大致内容</p>
 {% formfield player.short_dscp %}
 <br>
+
 <p id="prac_core_prompt">该事件中，您认为最关键的，或最可能令您有强烈感受的时候会是</p>
 <p id="main_core_prompt">该事件中，您认为最关键，或最有可能令您有强烈的上述感受的时候会是</p>
 {% formfield player.event_core %}
@@ -97,7 +97,7 @@
             event_speci.value = 'none';
         }
         else {
-            prac_prompt.style.display = 'none';ls
+            prac_prompt.style.display = 'none';
             prac_example.style.display = 'none';
             prac_core_prompt.style.display = 'none';
         }
