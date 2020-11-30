@@ -68,9 +68,17 @@ class Emo_evoketion(Page):
         )
 
     def js_vars(self):
+        emo = self.participant.vars['emotions'][self.round_number - 1]
+        if emo in ['relaxation', 'desire']:
+            emotion_type = 'positive'
+        elif emo in ['anger', 'sadness']:
+            emotion_type = 'negative'
+        else:
+            emotion_type = 'none'
         return dict(
             round_number=self.round_number,
-            time_mode=self.session.config['mode']
+            time_mode=self.session.config['mode'],
+            emotion_type=emotion_type
         )
 
     def before_next_page(self):
@@ -81,11 +89,13 @@ class Emo_evoketion(Page):
         client = ssh_connect(rasp_number)
         work_on_my_video(client, 'sudo rm -rf /var/log/motion/motion.log')
         work_on_my_video(client, 'sudo service motion start')
+        work_on_my_video(client, 'sudo rm -rf /var/log/motion/motion.log')
+        work_on_my_video(client, 'sudo service motion start')
         work_on_my_video(client, 'sudo motion')
         client.close()
 
     form_model = 'player'
-    form_fields = ['short_dscp', 'exact_time', 'event_core']
+    form_fields = ['short_dscp', 'exact_time', 'event_core', 'event_specification']
 
 
 class Imagination(Page):

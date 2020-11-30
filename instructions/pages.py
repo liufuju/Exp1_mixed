@@ -13,7 +13,7 @@ class Instruction(Page):
     def before_next_page(self):
         pwd = os.getcwd()
         emo_order_file = self.session.config['order_file']
-        dscp_file = 'emo_dscp_future.js'
+        dscp_file = self.session.config['emo_dscp_file']
 
         folder = 'reference'
         dscp_path = os.path.join(pwd, folder, dscp_file)

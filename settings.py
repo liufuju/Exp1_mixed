@@ -2,29 +2,13 @@ from os import environ
 
 SESSION_CONFIGS = [
     dict(
-        name='Exp1_mixed_future',
-        display_name="Exp1_mixed_future",
-        num_demo_participants=3,
-        app_sequence=['instructions', 'main', 'debriefing'],
-        mode=1,
-        order_file='order.txt'
-    ),
-    dict(
-        name='Exp1_mixed_past',
-        display_name="Exp1_mixed_past",
-        num_demo_participants=3,
-        app_sequence=['instructions', 'main', 'debriefing'],
-        mode=0,
-        order_file='order.txt',
-        time=45
-    ),
-    dict(
         name='Exp1_mixed_past_female',
         display_name="Exp1_mixed_past_female",
         num_demo_participants=3,
         app_sequence=['instructions', 'main', 'debriefing'],
         mode=0,
         order_file='order_past_female.txt',
+        emo_dscp_file='emo_dscp.js',
         time=45
     ),
     dict(
@@ -34,6 +18,7 @@ SESSION_CONFIGS = [
         app_sequence=['instructions', 'main', 'debriefing'],
         mode=0,
         order_file='order_past_male.txt',
+        emo_dscp_file='emo_dscp.js',
         time=45
     ),
     dict(
@@ -43,6 +28,7 @@ SESSION_CONFIGS = [
         app_sequence=['instructions', 'novel_combination', 'novel_future', 'debriefing'],
         mode=1,
         order_file='order_future.txt',
+        emo_dscp_file='emo_dscp_future.js',
         rasp_number=1,
         time=30
     ),
@@ -53,6 +39,7 @@ SESSION_CONFIGS = [
         app_sequence=['instructions', 'novel_combination', 'novel_future', 'debriefing'],
         mode=1,
         order_file='order_future.txt',
+        emo_dscp_file='emo_dscp_future.js',
         rasp_number=2,
         time=30
     ),
@@ -63,6 +50,7 @@ SESSION_CONFIGS = [
         app_sequence=['instructions', 'novel_combination', 'novel_future', 'debriefing'],
         mode=1,
         order_file='order_future.txt',
+        emo_dscp_file='emo_dscp_future.js',
         rasp_number=3,
         time=30
     )

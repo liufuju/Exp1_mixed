@@ -34,6 +34,9 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     emo = models.StringField()
     exact_time = models.StringField(label='')
+    event_specification = models.StringField(label='')
+    person = models.StringField(label='')
+    place = models.StringField(label='')
     alpha = models.StringField()
     alpha_direction = models.StringField()
 
