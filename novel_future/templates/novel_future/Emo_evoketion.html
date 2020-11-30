@@ -31,15 +31,16 @@
 <br>
 <div id="posi_speci" style="display: none">
     <p>您预期这门期末考试的课程会是</p>
-    {% formfield player.event_specification %}
-    <br>
 </div>
 <div id="nega_speci" style="display: none">
     <p>您预期您与他人的冲突会是</p>
-    {% formfield player.event_specification %}
-    <br>
 </div>
-<p>请您用一句话描述该事件的大致内容</p>
+<div id="main_speci">
+    {% formfield player.event_specification %}
+</div>
+
+<br>
+<p>您用一句话描述该事件的大致内容</p>
 {% formfield player.short_dscp %}
 <br>
 <p id="prac_core_prompt">该事件中，您认为最关键的，或最可能令您有强烈感受的时候会是</p>
@@ -86,11 +87,14 @@
         let prac_example = document.querySelector('#prac_example');
         let prac_core_prompt = document.querySelector('#prac_core_prompt');
         let main_core_prompt = document.querySelector('#main_core_prompt');
+        let event_speci = document.querySelector('#id_event_specification');
 
         if (round_number === 1) {
             main_prompt.style.display = 'none';
             main_core_prompt.style.display = 'none';
             round_hint.style.display = 'none';
+            main_speci.style.display = 'none';
+            event_speci.value = 'none';
         }
         else {
             prac_prompt.style.display = 'none';
