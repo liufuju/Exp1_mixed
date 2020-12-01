@@ -47,6 +47,3 @@ class Player(BasePlayer):
     place4 = models.StringField(label='')
     place5 = models.StringField(label='')
 
-    combination1 = models.StringField(label='')
-    combination2 = models.StringField(label='')
-    combination3 = models.StringField(label='')

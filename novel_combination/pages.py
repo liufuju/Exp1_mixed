@@ -30,10 +30,6 @@ class Novel_combination(Page):
         two_persons = random.sample(persons, 3)
         two_places = random.sample(places, 3)
 
-        self.player.combination1 = '{}_{}'.format(two_persons[0], two_places[0])
-        self.player.combination2 = '{}_{}'.format(two_persons[1], two_places[1])
-        self.player.combination3 = '{}_{}'.format(two_persons[2], two_places[2])
-
         self.participant.vars['combinations'] = dict(
             persons=two_persons,
             places=two_places

@@ -54,8 +54,8 @@ class Emo_evoketion(Page):
         emo_dscp = self.participant.vars['emo_dscp'][self.round_number - 1]
         age = self.participant.vars['age']
         city = self.participant.vars['city']
-        person = self.participant.vars['combinations']['persons'][self.round_number - 1]
-        place = self.participant.vars['combinations']['places'][self.round_number - 1]
+        person = self.participant.vars['combinations']['persons']
+        place = self.participant.vars['combinations']['places']
 
         return dict(
             emotion=emotion,
@@ -63,8 +63,12 @@ class Emo_evoketion(Page):
             age=age,
             city=city,
             round_number=self.round_number - 1,
-            person=person,
-            place=place
+            person1=person[0],
+            person2=person[1],
+            person3=person[2],
+            place1=place[0],
+            place2=place[1],
+            place3=place[2],
         )
 
     def js_vars(self):
@@ -95,7 +99,7 @@ class Emo_evoketion(Page):
         client.close()
 
     form_model = 'player'
-    form_fields = ['short_dscp', 'exact_time', 'event_core', 'event_specification']
+    form_fields = ['person', 'place', 'short_dscp', 'exact_time', 'event_core', 'event_specification']
 
 
 class Imagination(Page):
@@ -169,7 +173,7 @@ def ssh_connect(rasp_number):
     HOST = '39.105.99.86'
     USER = 'pi'
     PWD = 'horace13940349!!'
-    PORTs = [6000, 5000, 4000]
+    PORTs = [1000, 2000, 3000]
 
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())

@@ -11,24 +11,43 @@
 <br>
 
 <div id="event_gen_main">
-    <p>请您设想一个在一年后、在<strong>{{ place }}</strong>、有<strong>{{ person }}</strong>在场时发生的单独事件</p>
-    <p>且：</p>
+    <p>请您设想一个在一年后的这样一个事件：</p>
     <p id="emo_dscp_main" class="hint">{{ emo_dscp }}</p>
 </div>
 
 <div id="event_gen_prac">
-    <p>请您设想一个在一年后、在<strong>{{ place }}</strong>、有<strong>{{ person }}</strong>在场时发生的任意单独事件。</p>
+    <p>请您设想一个在一年后的随意一个事件</p>
 </div>
 <br>
 
 <p>这个事件应当：</p>
 <ol>
-    <li>有相对明确的发生地点与时间</li>
+    <li>发生在在下列三个地点之一：</li>
+    <ul>
+        <li>{{ place1 }}</li>
+        <li>{{ place2 }}</li>
+        <li>{{ place3 }}</li>
+    </ul>
+    <li>有下列三人中的一人在场：</li>
+    <ul>
+        <li>{{ person1 }}</li>
+        <li>{{ person2 }}</li>
+        <li>{{ person3 }}</li>
+    </ul>
     <li>持续时间不超过12小时</li>
     <li>尽量与本实验过程中设想的其他事件无关</li>
+    <li>在场人物和地点的组合与本实验过程中设想的其他事件不重复</li>
 </ol>
-
 <br>
+<br>
+<br>
+<p>您预期该事件中在场的人是：</p>
+{% formfield player.person %}
+<br>
+<p>您预期的该事件发生的地点是：</p>
+{% formfield player.place %}
+<br>
+
 <div id="posi_speci" style="display: none">
     <p>您预期这门十分重要的考试会是</p>
 </div>
@@ -39,18 +58,19 @@
     {% formfield player.event_specification %}
 </div>
 <br>
+<br>
+<br>
 <p>您用一句话描述该事件的大致内容</p>
 {% formfield player.short_dscp %}
 <br>
 
-<p id="prac_core_prompt">该事件中，您认为最关键的，或最可能令您有强烈感受的时候会是</p>
-<p id="main_core_prompt">该事件中，您认为最关键，或最有可能令您有强烈的上述感受的时候会是</p>
+<p id="prac_core_prompt">该事件中，您认为<strong>最关键</strong>的，或<strong>最有可能</strong>令您有强烈感受的时候会是</p>
+<p id="main_core_prompt">该事件中，您认为<strong>最关键</strong>，或<strong>最有可能</strong>令您有强烈的上述感受的时候会是</p>
 {% formfield player.event_core %}
 <br>
 <p>您认为该事件的具体发生时间最可能是（尽可能具体到年/月/日）</p>
 {% formfield player.exact_time %}
 <br>
-
 
 
 <div id="prac_example">
@@ -112,6 +132,7 @@
             nega_speci.style.display = 'block';
         }
     }
+
 
 
 </script>
