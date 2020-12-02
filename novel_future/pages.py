@@ -76,7 +76,7 @@ class Emo_evoketion(Page):
         if emo in ['relaxation', 'desire']:
             emotion_type = 'positive'
         elif emo in ['anger', 'sadness']:
-            emotion_type = 'negative'
+            emotion_type = emo
         else:
             emotion_type = 'none'
         return dict(

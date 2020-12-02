@@ -51,8 +51,11 @@
 <div id="posi_speci" style="display: none">
     <p>您预期这门十分重要的考试会是</p>
 </div>
-<div id="nega_speci" style="display: none">
+<div id="anger_speci" style="display: none">
     <p>您预期您与他人的冲突会是</p>
+</div>
+<div id="sadness_speci" style="display: none">
+    <p>您预期这个不可抗因素会是</p>
 </div>
 <div id="main_speci">
     {% formfield player.event_specification %}
@@ -124,12 +127,16 @@
 
         let emotion_type = js_vars.emotion_type;
         let posi_speci = document.querySelector('#posi_speci');
-        let nega_speci = document.querySelector('#nega_speci');
+        let anger_speci = document.querySelector('#anger_speci');
+        let sadness_speci = document.querySelector('#sadness_speci');
         if (emotion_type === "positive") {
             posi_speci.style.display = 'block';
         }
-        else if (emotion_type === "negative") {
-            nega_speci.style.display = 'block';
+        else if (emotion_type === "anger") {
+            anger_speci.style.display = 'block';
+        }
+        else if (emotion_type === "sadness" {
+            sadness_speci.style.display = 'block';
         }
     }
 
