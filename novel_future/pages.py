@@ -54,21 +54,13 @@ class Emo_evoketion(Page):
         emo_dscp = self.participant.vars['emo_dscp'][self.round_number - 1]
         age = self.participant.vars['age']
         city = self.participant.vars['city']
-        person = self.participant.vars['combinations']['persons']
-        place = self.participant.vars['combinations']['places']
 
         return dict(
             emotion=emotion,
             emo_dscp=emo_dscp,
             age=age,
             city=city,
-            round_number=self.round_number - 1,
-            person1=person[0],
-            person2=person[1],
-            person3=person[2],
-            place1=place[0],
-            place2=place[1],
-            place3=place[2],
+            round_number=self.round_number - 1
         )
 
     def js_vars(self):
