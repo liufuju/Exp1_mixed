@@ -42,4 +42,4 @@ class Novel_combination(Page):
     ]
 
 
-page_sequence = [Background, Novel_combination]
+page_sequence = [Background]
